@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1 class="brand">Royal Dashboard</h1>
+      <input type="search" class="search" placeholder="Cari Kelas, Dokumen, Aktifitas dll..." aria-label="Cari">
+    </header>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" aria-label="Menu utama">
+      <ul>
+        <li><a href="#" class="menu-item active" data-menu="home">Home</a></li>
+        <li><a href="#" class="menu-item" data-menu="mahasiswa">Mahasiswa</a></li>
+        <li><a href="#" class="menu-item" data-menu="kelas">Kelas</a></li>
+        <li><a href="#" class="menu-item" data-menu="aktifitas">Aktifitas</a></li>
+        <li><a href="#" class="menu-item" data-menu="statistik">Statistik</a></li>
+        <li><a href="#" class="menu-item" data-menu="dokumen">Dokumen</a></li>
+        <li><a href="#" class="menu-item settings" data-menu="settings">Settings</a></li>
+        <li><a href="#" class="menu-item signout" data-menu="signout">Sign Out</a></li>
+      </ul>
+    </nav>
+
+    <!-- KONTEN -->
+    <main class="content">
+
+      <!-- Banner -->
+      <section class="card hero" id="hero">
+        <div class="hero-text">
+          <h2 id="judul">Selamat Datang, Reky Febriyanti Kelas SI-3C</h2>
+          <p>Kamu memiliki Statistik, 3 Progres Kelas, 4 Aktifitas Selanjutnya dan 3 Lampiran Dokumen yang ada pada aplikasi ini.</p>
+        </div>
+        <div class="avatar" aria-hidden="true">
+          <img src="photo.jpeg" alt="">
+        </div>
+      </section>
+
+      <!-- Statistik -->
+      <section class="card stat" id="statistik">
+        <h3>Statistik Mahasiswa</h3>
+        <img class="chart" src="chart_statistik.svg" alt="Grafik batang statistik mahasiswa per kelas, kelas A sampai E">
+      </section>
+
+      <!-- Progres Kelas -->
+      <section class="card progres" id="progres">
+        <h3>Progres Kelas</h3>
+        <ul class="list">
+          <li><strong>Elemen Semantik pada HTML</strong><span>78 Pendaftar</span></li>
+          <li><strong>HTML Graphic & CSS Grid</strong><span>30 Pendaftar</span></li>
+          <li><strong>Java Script</strong><span>40 Pendaftar</span></li>
+          <li><strong>Memahami Variabel dan Tipe Data dalam Java</strong><span>10 Pendaftar</span></li>
+        </ul>
+      </section>
+
+      <!-- Aktifitas Selanjutnya -->
+      <section class="card aktif" id="aktifitas">
+        <h3>Aktifitas Selanjutnya</h3>
+        <ul class="list">
+          <li><strong>Perkuliahan Masuk 1</strong><span>Senin, 16 Januari 2025</span></li>
+          <li><strong>Perkuliahan Masuk 2</strong><span>Selasa, 17 Februari 2025</span></li>
+          <li><strong>Perkuliahan Masuk 3</strong><span>Rabu, 18 Maret 2025</span></li>
+          <li><strong>Perkuliahan Masuk 4</strong><span>Kamis, 19 April 2025</span></li>
+        </ul>
+      </section>
+
+      <!-- Lampiran -->
+      <section class="card lampiran" id="lampiran">
+        <h3>Lampiran</h3>
+        <ul class="docs">
+          <li>
+            <p><strong>Lampiran Dokumen 1 -</strong> Matakuliah A | Tugas Bersama Perkuliahan Daring</p>
+            <a href="#">Lihat Dokumen</a>
+          </li>
+          <li>
+            <p><strong>Lampiran Dokumen 2 -</strong> Matakuliah B | Tugas Bersama Perkuliahan Daring</p>
+            <a href="#">Lihat Dokumen</a>
+          </li>
+          <li>
+            <p><strong>Lampiran Dokumen 3 -</strong> Matakuliah C | Tugas Bersama Perkuliahan Daring</p>
+            <a href="#">Lihat Dokumen</a>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+/* ===== Reset & variabel ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --biru: #0052b4;
+  --biru-tua: #123f78;
+  --biru-muda: #eaf1fb;
+  --latar: #e6f0ff;
+  --putih: #ffffff;
+  --teks: #1d2433;
+
+  /* Pink tua: Aktifitas + Progres Kelas */
+  --pink: #d81b60;
+  --pink-item: #b81453;
+
+  /* Merah muda: Statistik + Lampiran (Dokumen) */
+  --muda: #f4c4cc;
+  --muda-item: #eaa9b4;
+
+  --radius: 10px;
+}
+
+body {
+  font-family: "Jost", system-ui, sans-serif;
+  background: #2b2b2b;
+  color: var(--teks);
+  min-height: 100vh;
+  padding: 30px;
+}
+
+/* ===== Layout utama (GRID) ===== */
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--latar);
+  border-radius: 20px;
+  padding: 24px 26px;
+  display: grid;
+  grid-template-columns: 215px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header  header"
+    "sidebar content";
+  gap: 22px 14px;
+}
+
+/* ===== Header ===== */
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 217px);
+  align-items: center;
+  gap: 16px;
+}
+.brand { font-size: 1.6rem; font-weight: 700; color: var(--biru-tua); }
+.search {
+  width: 100%;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: .7rem;
+  border: 1px solid #7aa7ff;
+  border-radius: 6px;
+  background: var(--biru-muda);
+  text-align: center;
+}
+.search:focus { outline: 2px solid var(--biru); }
+
+/* ===== Sidebar ===== */
+.sidebar {
+  grid-area: sidebar;
+  background: var(--biru);
+  border-radius: 6px;
+  padding: 36px 0;
+}
+.sidebar ul { list-style: none; display: grid; gap: 4px; }
+.menu-item {
+  display: block;
+  padding: 14px 0 14px 74px;
+  color: #fff;
+  font-weight: 600;
+  font-size: .85rem;
+  text-decoration: none;
+  transition: background .2s;
+}
+.menu-item:hover { background: rgba(255,255,255,.12); }
+.menu-item.active { background: var(--biru-tua); }
+.menu-item.settings { color: #4fe3f5; }
+.menu-item.signout  { color: #ffb08c; }
+
+/* ===== Konten (GRID) ===== */
+.content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1.2fr;
+  grid-template-areas:
+    "hero    hero    hero"
+    "stat    progres aktif"
+    "lampiran lampiran lampiran";
+  gap: 14px;
+}
+
+.card {
+  background: var(--putih);
+  border-radius: 6px;
+  padding: 14px 16px;
+  transition: background .3s, color .3s;
+}
+.card h3 { font-size: .8rem; font-weight: 500; margin-bottom: 12px; }
+
+/* Banner */
+.hero {
+  grid-area: hero;
+  background: var(--biru);
+  color: #fff;
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+.hero h2 { font-size: 1.6rem; line-height: 1.2; margin-bottom: 14px; max-width: 420px; }
+.hero p  { font-size: .7rem; line-height: 1.6; max-width: 400px; }
+
+/* Foto profil: bulatan lebih besar */
+.avatar {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  border: 3px solid #cfd8ff;
+  overflow: hidden;
+  margin-right: 30px;
+}
+.avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+/* Statistik */
+.stat    { grid-area: stat; }
+.progres { grid-area: progres; }
+.aktif   { grid-area: aktif; }
+.chart   { width: 100%; height: auto; display: block; border-radius: 4px; }
+
+/* Daftar (progres & aktifitas) */
+.list { list-style: none; display: grid; gap: 6px; }
+.list li {
+  background: var(--biru-muda);
+  border-radius: 6px;
+  padding: 9px 12px;
+  display: grid;
+  gap: 4px;
+  transition: background .3s;
+}
+.list strong { font-size: .62rem; font-weight: 600; }
+.list span   { font-size: .6rem; font-weight: 600; color: var(--biru); }
+
+/* Lampiran */
+.lampiran { grid-area: lampiran; }
+.docs { list-style: none; display: grid; gap: 8px; }
+.docs li {
+  background: var(--biru-muda);
+  border-radius: 6px;
+  padding: 14px 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  font-size: .65rem;
+  transition: background .3s;
+}
+.docs a { color: var(--biru); font-weight: 700; }
+
+/* ===== State PINK TUA (class "pink", diatur lewat JS) ===== */
+.card.pink { background: var(--pink); color: #fff; }
+.card.pink h3 { color: #fff; }
+.card.pink .list li { background: var(--pink-item); color: #fff; }
+.card.pink .list span { color: #ffd6e6; }
+
+/* ===== State MERAH MUDA (class "muda", diatur lewat JS) ===== */
+.card.muda { background: var(--muda); color: var(--teks); }
+.card.muda h3 { color: var(--teks); }
+.card.muda .docs li { background: var(--muda-item); color: var(--teks); }
+.card.muda .docs a { color: var(--biru); }
+
+/* ===== Responsive ===== */
+@media (max-width: 860px) {
+  body { padding: 12px; }
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "sidebar" "content";
+  }
+  .sidebar { padding: 10px 0; }
+  .sidebar ul { grid-template-columns: repeat(2, 1fr); }
+  .menu-item { padding: 12px 20px; }
+  .content {
+    grid-template-columns: 1fr;
+    grid-template-areas: "hero" "stat" "progres" "aktif" "lampiran";
+  }
+  .avatar { margin-right: 0; }
+  .header { grid-template-columns: 1fr; }
+}
